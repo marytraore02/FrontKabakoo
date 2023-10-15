@@ -1,0 +1,133 @@
+<div class="col-md-12">
+    <div class="card card-container">
+      <img
+        id="profile-img"
+        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+        class="profile-img-card"
+      />
+      <form
+        *ngIf="!isLoggedIn"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            #username="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="username.errors && f.submitted"
+          >
+            Username is required!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="6"
+            #password="ngModel"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="password.errors && f.submitted"
+          >
+            <div *ngIf="password.errors['required']">Password is required</div>
+            <div *ngIf="password.errors['minlength']">
+              Password must be at least 6 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block">
+            Login
+          </button>
+        </div>
+        <div class="form-group">
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && isLoginFailed"
+          >
+            Login failed: {{ errorMessage }}
+          </div>
+        </div>
+      </form>
+  
+      <!-- <div class="alert alert-success" *ngIf="isLoggedIn">
+        <div *ngIf="showUserBoard">
+          Logged in as <a href="/">{{ roles }}</a>.
+        </div>
+      </div>
+
+      <div class="alert alert-success" *ngIf="isLoggedIn">
+        <div *ngIf="showUserBoard">
+          Logged in as <a href="/">{{ roles }}</a>.
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+  
+  
+  
+  <!-- 
+  <div class="log">
+  
+  
+    <section class="form-container" data-aos="zoom-in" >
+      <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+        <div class="row mt-5">
+            <div class="col-md-4 mx-auto">
+          <h1 class="heading"> <span>Login</span> </h1>
+        <form  (ngSubmit)="onSubmit()" novalidate #f="ngForm" action="">
+            
+            <div class="inputBox">
+                <span for="username">Username</span>
+                <input type="text" placeholder="username" id="username" name="username" required>
+            </div>
+            <div class="inputBox">
+                <span for="password">Password</span>
+                <input type="password" placeholder="Password" class="form-control"  id="password" name="password" required>
+            </div>
+        <div class="register">
+          <h2>Vous n'avez pas de compte? Creer en un ici <a href="/register">creer</a> </h2>
+        </div>
+    
+        </form>
+      
+        <input type="submit" value="Login" class="btn" [disabled]="!f.valid">
+    
+        </div>
+    </div>
+    </section>  -->
+    <!-- 
+    <div class="right-box" data-aos="zoom-in">
+      <span class="signinwith"><h1 class="titre">Sign in With <br> Social Networks</h1></span>
+    
+      <button class="social facebook">Log in with Facebook</button>
+      <button class="social twitter">Log in with twitter</button>
+      <button type="submit" class="social google g-signin2" data-onsuccess="onSignIn()">Log in with gmail</button>
+    </div> -->
+  
+    
+    <!-- </div> -->
+    
