@@ -1,0 +1,29 @@
+.btn-home{
+    padding: 20px 40px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid #ffffff80;
+    transition: .5s ease;
+    color: white;
+}
+
+.btn-home:hover{
+    background: #55415D;
+    border: 1px solid #55415D;
+    text-shadow: 0 0 5px #ffffff,
+                0 0 10px #ffffff,
+                0 0 20px #ffffff;
+    box-shadow: 0 0 100px green;
+}
+
+#icon1,#icon2,#icon3,#icon4,#icon5,#icon6 {
+    border: 1px solid #55415D;
+    color: #55415D;
+}
+
+#icon1:hover{
+    background-color: transparent;
+}
+#card:hover {
+    background-color: gray;
+}

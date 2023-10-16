@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Inject, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/_services/auth/auth.service';
@@ -18,6 +18,7 @@ export class SignupComponent {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+
 
   constructor(
     private authService: AuthService,
@@ -54,5 +55,5 @@ export class SignupComponent {
       this.router.navigateByUrl('/login');
     }
 
-    
+
 }

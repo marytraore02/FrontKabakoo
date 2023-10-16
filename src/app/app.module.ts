@@ -45,6 +45,7 @@ import { DashboardComponent } from './components/dashboard/dashboard/dashboard.c
     CommonModule,
     HttpClientModule,
     ToastrModule.forRoot(),
+    BrowserModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
