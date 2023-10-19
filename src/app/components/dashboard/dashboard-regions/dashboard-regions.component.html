@@ -189,71 +189,218 @@
         Header end ti-comment-alt
     ***********************************-->
 
-    <!--**********************************
-        Sidebar start
-    ***********************************-->
-    <div class="deznav">
-        <div class="deznav-scroll">
-    <a class="add-project-sidebar btn btn-primary" href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#addProjectSidebar" >+ New Project</a>
-    <ul class="metismenu" id="menu">
-      <li>
-          <a routerLink="/dashboard/home"  class="linkcolormenu">
-              <i class="flaticon-layout"></i>
-              <span class="nav-text">Dashboard</span>
-          </a>
-      </li>
-      <li>
-          <a href="#" routerLink="/dashboard/region">
-              <i class="fas fa-place-of-worship"></i>
-              <span class="nav-text">Region</span>
-          </a>
-      </li>
-      <li>
-          <a  href="#">
-              <i class="flaticon-bar-chart-1"></i>
-              <span class="nav-text">Charts</span>
-          </a>
-      </li>
-                <li><a  href="#">
-          <i class="flaticon-web"></i>
-          <span class="nav-text">Bootstrap</span>
-        </a>
-                </li>
-                <li><a  href="#">
-          <i class="flaticon-plugin"></i>
-          <span class="nav-text">Plugins</span>
-        </a>
-                </li>
-                <li><a href="#">
-          <i class="flaticon-admin"></i>
-          <span class="nav-text">Widget</span>
-        </a>
-      </li>
-                <li><a  href="#">
-          <i class="flaticon-contract"></i>
-          <span class="nav-text">Forms</span>
-        </a>
-                </li>
-                <li><a  href="#">
-          <i class="flaticon-table"></i>
-          <span class="nav-text">Table</span>
-        </a>
-                </li>
-                <li><a  href="#">
-          <i class="flaticon-newsletter"></i>
-          <span class="nav-text">Pages</span>
-        </a>
-                </li>
-            </ul>
-  </div>
-    </div>
-    <!--**********************************
-        Sidebar end
-    ***********************************-->
-
-
 
     
+      <!--**********************************
+          Sidebar start
+      ***********************************-->
+      <div class="deznav">
+        <div class="deznav-scroll">
+            <a class="add-project-sidebar btn btn-primary" href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#addProjectSidebar" >+ New Project</a>
+            <ul class="metismenu" id="menu">
+                <li>
+                    <a routerLink="/dashboard/home">
+                        <i class="flaticon-layout"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/dashboard/region" class="linkcolormenu">
+                        <i class="fas fa-place-of-worship"></i>
+                        <span class="nav-text">Region</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/dashboard/pays">
+                        <i class="fas fa-flag-checkered"></i>
+                        <span class="nav-text">Pays</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span class="nav-text">Sites</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="#">
+                        <i class="fas fa-photo-video"></i>
+                        <span class="nav-text">Gallery</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="flaticon-admin"></i>
+                        <span class="nav-text">Paramètres</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="#">
+                        <i class="flaticon-contract"></i>
+                        <span class="nav-text">Forms</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="#">
+                        <i class="flaticon-table"></i>
+                        <span class="nav-text">Table</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="#">
+                        <i class="flaticon-newsletter"></i>
+                        <span class="nav-text">Pages</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+      </div>
+      <!--**********************************
+          Sidebar end
+      ***********************************-->
+
+
+    <div class="content-body">
+            <!-- Add Project -->
+            <div class="modal fade" id="addProjectSidebar">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Créer une nouvelle region</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="text-black font-w500">Nom</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <!-- <div class="form-group">
+                            <label class="text-black font-w500">Dadeline</label>
+                            <div class="cal-icon"><input type="date" class="form-control"><i class="far fa-calendar-alt"></i></div>
+                        </div> -->
+                        <div class="form-group">
+                            <label class="text-black font-w500">Domaine d'activité</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-black font-w500">Superficie</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-black font-w500">Langue majoritaire</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-black font-w500">Image</label>
+                            <input type="file" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-black font-w500">Description</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div>
+                        <div class="form-group">
+                        <button type="button" class="btn btn-primary">Créer</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-6 col-xxl-12">
+                  <div class="row">
+                        <div class="col-xl-12">
+                                <div class="card message-bx">
+                                    <div class="card-header border-0 d-sm-flex d-block pb-0">
+                                        <div>
+                                            <h4 class="fs-20 mb-0  text-black mb-sm-0 mb-2">Liste des regions</h4>
+                                        </div>
+                                        <a href="javascript:void(0)" class="btn btn-primary shadow-primary btn-rounded text-white" data-bs-toggle="modal" data-bs-target="#addProjectSidebar">+ Ajouter</a>
+                                    </div>
+                                    <div class="card-body">
+                                          <table class="table">
+                                            <thead class="thead-light">
+                                              <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">IMAGE</th>
+                                                <th scope="col">CODE</th>
+                                                <th scope="col">NOM</th>
+                                                <th scope="col">DOMAINE</th>
+                                                <th scope="col">SUPERFICIE</th>
+                                                <th scope="col">LANGUE</th>
+                                                <th scope="col">PAYS</th>
+                                                <th>ACTIONS</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr>
+                                                <th scope="row">1</th>
+                                                <td>                           
+                                                    <img src="../../../../assets/img/about-2.jpg" alt="image region" style="width: 150px;height: 100px;border-radius: 5px">
+                                                </td>
+                                                <td>RC01</td>
+                                                <td>Sikasso</td>
+                                                <td>Agriculture</td>
+                                                <td>200642 km2</td>
+                                                <td>Bambara, peulh</td>
+                                                <td>MALI</td>
+                                                <td>            
+                                                    <a href="#" id="btn-1" class="btn btn-outline-primary"><i class="far fa-eye"></i></a>
+                                                    <a href="#" id="btn-2" class="btn btn-outline-warning"><i class="far fa-edit"></i></a>
+                                                    <a href="#" id="btn-3" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">2</th>
+                                                <td>                           
+                                                    <img src="../../../../assets/img/about-2.jpg" alt="image region" style="width: 150px;height: 100px;border-radius: 5px">
+                                                </td>
+                                                <td>RC01</td>
+                                                <td>Sikasso</td>
+                                                <td>Agriculture</td>
+                                                <td>200642 km2</td>
+                                                <td>Bambara, peulh</td>
+                                                <td>MALI</td>
+                                                <td>            
+                                                    <a href="#" id="btn-1" class="btn btn-outline-primary"><i class="far fa-eye"></i></a>
+                                                    <a href="#" id="btn-2" class="btn btn-outline-warning"><i class="far fa-edit"></i></a>
+                                                    <a href="#" id="btn-3" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+                                                </td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">3</th>
+                                                <td>                           
+                                                    <img src="../../../../assets/img/about-2.jpg" alt="image region" style="width: 150px;height: 100px;border-radius: 5px">
+                                                </td>
+                                                <td>RC01</td>
+                                                <td>Sikasso</td>
+                                                <td>Agriculture</td>
+                                                <td>200642 km2</td>
+                                                <td>Bambara, peulh</td>
+                                                <td>MALI</td>
+                                                <td>            
+                                                    <a href="#" id="btn-1" class="btn btn-outline-primary"><i class="far fa-eye"></i></a>
+                                                    <a href="#" id="btn-2" class="btn btn-outline-warning"><i class="far fa-edit"></i></a>
+                                                    <a href="#" id="btn-3" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>
+                                                </td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+
+
+
+
+
 
     </div>
 
