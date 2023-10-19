@@ -25,9 +25,11 @@
       ***********************************-->
       <div class="nav-header">
           <a href="#" class="brand-logo">
-              <i class="logo-abbr fa-brands fa-stumbleupon"></i>
+              <!-- <i class="logo-abbr fa-brands fa-stumbleupon"></i> -->
         
-      <h2 class="brand-title">Admin</h2>
+                <!-- <h2  class="brand-title">Mali Tourisme </h2> -->
+              
+      <h2 class="brand-title">Admin panel</h2>
           </a>
 
           <div class="nav-control">
@@ -198,22 +200,24 @@
           <div class="deznav-scroll">
       <a class="add-project-sidebar btn btn-primary" href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#addProjectSidebar" >+ New Project</a>
       <ul class="metismenu" id="menu">
-                  <li><a href="#">
-            <i class="flaticon-layout"></i>
-            <span class="nav-text">Dashboard</span>
-          </a>
-
-                  </li>
-                  <li><a  href="#">
-          <i class="flaticon-monitor"></i>
-            <span class="nav-text">Apps</span>
-          </a>
-                  </li>
-                  <li><a  href="#">
-            <i class="flaticon-bar-chart-1"></i>
-            <span class="nav-text">Charts</span>
-          </a>
-                  </li>
+        <li>
+            <a routerLink="/dashboard/home"  class="linkcolormenu">
+                <i class="flaticon-layout"></i>
+                <span class="nav-text">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" routerLink="/dashboard/region">
+                <i class="fas fa-place-of-worship"></i>
+                <span class="nav-text">Region</span>
+            </a>
+        </li>
+        <li>
+            <a  href="#">
+                <i class="flaticon-bar-chart-1"></i>
+                <span class="nav-text">Charts</span>
+            </a>
+        </li>
                   <li><a  href="#">
             <i class="flaticon-web"></i>
             <span class="nav-text">Bootstrap</span>
