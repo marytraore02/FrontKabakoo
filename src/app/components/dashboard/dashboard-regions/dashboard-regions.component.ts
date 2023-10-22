@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Pays } from 'src/app/Models/pays';
 import { Region } from 'src/app/Models/region';
+import { TokenStorageService } from 'src/app/_services/auth/token-storage.service';
 import { PaysService } from 'src/app/_services/pays/pays.service';
 import { RegionService } from 'src/app/_services/regions/region.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dashboard-regions',
@@ -27,14 +29,25 @@ export class DashboardRegionsComponent implements OnInit{
   pays : any;
   createur : any;
   idPays!: number;
+  accessToken:any;
+  user: any;
 
   constructor(
     private regionService: RegionService,
     private paysService: PaysService,
-    private router: Router
+    private router: Router,
+    private tokenStorage: TokenStorageService
     ){}
   
   ngOnInit(): void {
+        //==========Recuperation de user conecter=========
+        this.user = this.tokenStorage.getUser().id;
+        console.log("id user "+this.user);
+    
+        this.accessToken = this.tokenStorage.getUser().accessToken;
+        console.log("token du user "+this.accessToken)
+
+        
     this.listeRegion();
     this.ListPays();
   }
@@ -80,17 +93,11 @@ export class DashboardRegionsComponent implements OnInit{
     "langueMajoritaire":this.langueMajoritaire
   }]
 
-    onCreate(idPays: number) {
-      console.log(this.idPays)
-      // const region = new Region(this.codeRegion, this.imageRegion, this.nomRegion, this.domaineActiviteRegion, this.superficie, this.langueMajoritaire);
-      // console.log(region);
-      this.regionService.Creer(this.image,this.codeRegion,this.nomRegion,this.descriptionRegion,this.domaineActiviteRegion,this.superficie,this.langueMajoritaire,this.idPays).subscribe(
+    onCreate() {
+      this.regionService.Creer(this.image,this.codeRegion,this.nomRegion,this.descriptionRegion,this.domaineActiviteRegion,this.superficie,this.langueMajoritaire,this.idPays,this.accessToken).subscribe(
         data => {
-          // this.toastr.success('Region creer', 'OK', {
-          //   timeOut: 3000, positionClass: 'toast-top-center'
-          // });
           console.log(data);
-          this.router.navigate(['/dashboard/region']);
+          this.popUp();
         },
         err => {
           // this.toastr.error(err.error.mensaje, 'Fail', {
@@ -100,5 +107,29 @@ export class DashboardRegionsComponent implements OnInit{
         }
       );
     }
+
+      // METHODE DE POP UP INSCRIPTION
+  popUp() {
+    Swal.fire({
+      position:'center',
+      // title: 'Géo-clinique',
+      text: 'Region créer avec success!',
+      icon:'success',
+      heightAuto: false,
+      showConfirmButton: true,
+      confirmButtonText: "OK",
+      confirmButtonColor: '#0857b5',
+      showDenyButton: false,
+      showCancelButton: false,
+      allowOutsideClick: false
+    }).then((result) => {
+      if (result.isConfirmed) {
+          this.router.navigate(['/dashboard/region']);
+          window.location.reload();
+      }
+    })
+
+  }
+
 
 }

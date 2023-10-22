@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Pays } from 'src/app/Models/pays';
 import { TokenStorageService } from 'src/app/_services/auth/token-storage.service';
 import { PaysService } from 'src/app/_services/pays/pays.service';
+import { RegionService } from 'src/app/_services/regions/region.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -49,7 +50,7 @@ export class DashboardPaysComponent implements OnInit{
       }
     );
   }
-
+  
     //Recuperationn de l'image depuis la formulaire
     recuperationImage(event: any) {
       this.image = event.target["files"][0];
@@ -62,7 +63,7 @@ export class DashboardPaysComponent implements OnInit{
     }]
 
     onCreate() {
-      this.paysService.Creer(this.image,this.nomPays,this.descriptionPays,this.superficiePays,this.accessToken).subscribe(
+      this.paysService.Create(this.image,this.nomPays,this.descriptionPays,this.superficiePays,this.accessToken).subscribe(
         data => {
           // this.toastr.success('Region creer', 'OK', {
           //   timeOut: 3000, positionClass: 'toast-top-center'

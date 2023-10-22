@@ -132,7 +132,7 @@
                     <form>
                         <div class="form-group">
                             <label class="text-black font-w500" for="codeRegion">Code</label>
-                            <input type="text" class="form-control" placeholder="Identifiant" id="codeRegion" name="codeRegion"
+                            <input type="text" class="form-control" placeholder="Code" id="codeRegion" name="codeRegion"
                             [(ngModel)]="codeRegion" required>
                         </div>
                         <div class="form-group">
@@ -162,11 +162,8 @@
                         <div class="form-group">
                             <label class="text-black font-w500">Pays</label>
                             <select class="form-select" name="idPays" id="idPays" [(ngModel)]="idPays" aria-label="Sélectionner le pays">
-                                <option *ngFor="let pays of listepays" value="{{pays.nomPays}}">{{pays.nomPays}}</option>
-                                <!-- <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option> -->
+                                <option selected disabled>--sélectionner un pays--</option>
+                                <option *ngFor="let pays of listepays" value="{{pays.idPays}}">{{pays.nomPays}}</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -180,7 +177,7 @@
                           </div>
                     </form>
                         <div class="form-group">
-                            <button type="button" (click)="onCreate(pays.idPays)" class="btn btn-primary">Créer</button>
+                            <button type="button" (click)="onCreate()" class="btn btn-primary">Créer</button>
                         </div>
                     </div>
                 </div>
@@ -214,51 +211,18 @@
                                               </tr>
                                             </thead>
                                             <tbody>
-                                              <tr>
-                                                <th scope="row">1</th>
-                                                <td>                           
-                                                    <img src="../../../../assets/img/about-2.jpg" alt="image region" style="width: 150px;height: 100px;border-radius: 5px">
+                                              <tr *ngFor="let region of listregions let id = index">
+                                                <th scope="row"> {{ id+1 }} </th>
+                                                <td>   
+                                                  <img *ngIf="region.imageRegion" src="{{ region.imageRegion }}"  alt="image region" class="image"/>
+                                                  <img *ngIf="region.imageRegion==null" src="../../../../assets/img/angular.png" alt="image region" class="image"/>                        
                                                 </td>
-                                                <td>RC01</td>
-                                                <td>Sikasso</td>
-                                                <td>Agriculture</td>
-                                                <td>200642 km2</td>
-                                                <td>Bambara, peulh</td>
-                                                <td>MALI</td>
-                                                <td>            
-                                                    <a href="#" id="btn-1" class="btn btn-outline-primary"><i class="far fa-eye"></i></a>
-                                                    <a href="#" id="btn-2" class="btn btn-outline-warning"><i class="far fa-edit"></i></a>
-                                                    <a href="#" id="btn-3" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>
-                                                </td>
-                                              </tr>
-                                              <tr>
-                                                <th scope="row">2</th>
-                                                <td>                           
-                                                    <img src="../../../../assets/img/about-2.jpg" alt="image region" style="width: 150px;height: 100px;border-radius: 5px">
-                                                </td>
-                                                <td>RC01</td>
-                                                <td>Sikasso</td>
-                                                <td>Agriculture</td>
-                                                <td>200642 km2</td>
-                                                <td>Bambara, peulh</td>
-                                                <td>MALI</td>
-                                                <td>            
-                                                    <a href="#" id="btn-1" class="btn btn-outline-primary"><i class="far fa-eye"></i></a>
-                                                    <a href="#" id="btn-2" class="btn btn-outline-warning"><i class="far fa-edit"></i></a>
-                                                    <a href="#" id="btn-3" class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></a>
-                                                </td>
-                                              </tr>
-                                              <tr>
-                                                <th scope="row">3</th>
-                                                <td>                           
-                                                    <img src="../../../../assets/img/about-2.jpg" alt="image region" style="width: 150px;height: 100px;border-radius: 5px">
-                                                </td>
-                                                <td>RC01</td>
-                                                <td>Sikasso</td>
-                                                <td>Agriculture</td>
-                                                <td>200642 km2</td>
-                                                <td>Bambara, peulh</td>
-                                                <td>MALI</td>
+                                                <td> {{ region.codeRegion }} </td>
+                                                <td> {{ region.nomRegion}} </td>
+                                                <td> {{ region.domaineActiviteRegion }} </td>
+                                                <td> {{ region.superficie }} </td>
+                                                <td> {{ region.langueMajoritaire }} </td>
+                                                <td> {{ region.langueMajoritaire }} </td>
                                                 <td>            
                                                     <a href="#" id="btn-1" class="btn btn-outline-primary"><i class="far fa-eye"></i></a>
                                                     <a href="#" id="btn-2" class="btn btn-outline-warning"><i class="far fa-edit"></i></a>
