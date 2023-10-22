@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/_services/auth/auth.service';
 import { TokenStorageService } from 'src/app/_services/auth/token-storage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +28,8 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
     private router: Router,
-    private tokenStorageService: TokenStorageService
+    private tokenStorageService: TokenStorageService,
+    private toastr: ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -52,35 +55,15 @@ export class LoginComponent implements OnInit {
 
         // On recupère le role de la personne connecter
         this.role = this.tokenStorageService.getUser().roles;
+        this.username = this.tokenStorageService.getUser().username;
         this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
         this.showUserBoard = this.roles.includes('ROLE_USER');
-
-        // On vérifie, si le role user ou admin pour la redirection
-        // if (this.isLoggedIn) {
-        //   const user = this.tokenStorageService.getUser();
-        //   this.roles = user.roles;
-        //   this.role = user.roles;
-
-        //   this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-        //   this.showUserBoard = this.roles.includes('ROLE_USER');
-        //   this.username = user.username;
-        // }
         this.navigateAdmin();
-
-        // if (this.showAdminBoard){
-        //   this.navigateAdmin();
-        //   this.reloadPage()
-        // } else {
-        //   this.navigateHome();
-        //   this.reloadPage()
-        // }
-
-        // this.roles = this.tokenStorage.getUser().roles;
-        // this.reloadPage();
       },
       error: (err) => {
-        this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
+        this.toastr.error(err.error.message);
+        // this.errorMessage = err.error.message;
+        // this.isLoginFailed = true;
       },
     });
   }
@@ -88,6 +71,7 @@ export class LoginComponent implements OnInit {
   // Redirection
   navigateAdmin() {
     this.router.navigateByUrl('/accueil');
+    this.showSuccess();
   }
 
   // Redirection
@@ -99,4 +83,10 @@ export class LoginComponent implements OnInit {
     // window.location.reload();
     this.navigateAdmin();
   }
+
+  showSuccess() {
+    this.toastr.success('Bienvenue '+ this.username);
+  }
+
+
 }

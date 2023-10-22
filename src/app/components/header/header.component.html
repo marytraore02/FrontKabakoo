@@ -50,7 +50,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
-                        <a href="/dashboard" class="nav-item nav-link" *ngIf="showAdminBoard">
+                        <a href="/dashboard/home" class="nav-item nav-link" *ngIf="showAdminBoard">
                           <i class="fas fa-tachometer-alt"></i>
                           Dashboard
                         </a>
@@ -65,7 +65,7 @@
                         <a href="/signup" *ngIf="!isLoggedIn" class="nav-item nav-link"><span class="connexion"> <i class="fas fa-user-plus"></i> Sign up</span></a>
                         <a href="/login" *ngIf="!isLoggedIn" class="nav-item nav-link"><span class="connexion"> <i class="fas fa-user" id="login-btn" title="login"></i> Login</span></a>
                         <a href="/profile"  *ngIf="isLoggedIn" class="nav-item nav-link"><i class="fas fa-user" id="login-btn" title="login"></i> {{ username }}</a>
-                        <a href *ngIf="isLoggedIn" (click)="logout()" class="nav-item nav-link"><span class="logout"><i class="fas fa-sign-out-alt"></i> LogOut</span> </a>
+                        <a *ngIf="isLoggedIn" (click)="Deconnexion()" class="nav-item nav-link"><span class="logout"><i class="fas fa-sign-out-alt"></i> LogOut</span> </a>
                     </div>
                 </div>  
             </nav>

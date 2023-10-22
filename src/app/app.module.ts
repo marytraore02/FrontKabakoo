@@ -18,8 +18,12 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeDashboardComponent } from './components/dashboard/home-dashboard/home-dashboard.component';
+import { HomeComponent } from './components/dashboard/home/home.component';
+import { DashboardPaysComponent } from './components/dashboard/dashboard-pays/dashboard-pays.component';
+import { DashboardRegionsComponent } from './components/dashboard/dashboard-regions/dashboard-regions.component';
 import { ToastrModule } from 'ngx-toastr';
-import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -36,7 +40,10 @@ import { DashboardComponent } from './components/dashboard/dashboard/dashboard.c
     SitesComponent,
     LoginComponent,
     SignupComponent,
-    DashboardComponent
+    HomeDashboardComponent,
+    HomeComponent,
+    DashboardPaysComponent,
+    DashboardRegionsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +52,7 @@ import { DashboardComponent } from './components/dashboard/dashboard/dashboard.c
     CommonModule,
     HttpClientModule,
     ToastrModule.forRoot(),
+    BrowserAnimationsModule,
     BrowserModule,
   ],
   providers: [],

@@ -8,256 +8,131 @@
 </head>
 <body>
   
-
-
-
-<div class="col-md-12">
-  <!-- 
-    <div class="col-lg-5 text-center">
-      <div class="card border-0">
-          <div class="card-header text-center p-4" style="background-color: #F9D58B;">
-              <h1 class="m-0" style="color: #55415D;">Créer un compte</h1>
-          </div>
-          <div style="margin-bottom: 1rem;"></div>
-          <img
-          id="profile-img"
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          class="profile-img-card"
-        />
-          <div class="card-body rounded-bottom bg-white p-5">
-              <form 
-              *ngIf="!isSuccessful"
-              name="form"
-              (ngSubmit)="f.form.valid && onSubmit()"
-              #f="ngForm"
-              novalidate>
-                  <div class="form-group">
-                      <input 
-                      type="text"
-                      name="username"
-                      [(ngModel)]="form.username"
-                      required
-                      minlength="3"
-                      maxlength="20"
-                      #username="ngModel" 
-                      class="form-control p-4" 
-                      placeholder="Username"/>
-                      <div class="alert-danger" *ngIf="username.errors && f.submitted">
-                        <div *ngIf="username.errors['required']">Username is required</div>
-                        <div *ngIf="username.errors['minlength']">
-                          Username must be at least 3 characters
-                        </div>
-                        <div *ngIf="username.errors['maxlength']">
-                          Username must be at most 20 characters
-                        </div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                      <input 
-                      type="email"
-                      name="email"
-                      [(ngModel)]="form.email"
-                      required
-                      email
-                      #email="ngModel" 
-                      class="form-control p-4" 
-                      placeholder="Email"/>
-                      <div class="alert-danger" *ngIf="email.errors && f.submitted">
-                        <div *ngIf="email.errors['required']">Email is required</div>
-                        <div *ngIf="email.errors['email']">
-                          Email must be a valid email address
-                        </div>
-                      </div>
-                  </div>
-                  <div class="form-group">
-                    <input 
-                    type="password"
-                    name="password"
-                    [(ngModel)]="form.password"
-                    required
-                    minlength="6"
-                    #password="ngModel"
-                    class="form-control p-4" 
-                    placeholder="Password"/>
-                    <div class="alert-danger" *ngIf="password.errors && f.submitted">
-                      <div *ngIf="password.errors['required']">Password is required</div>
-                      <div *ngIf="password.errors['minlength']">
-                        Password must be at least 6 characters
-                      </div>
-                    </div>
-                </div>
-                  <div>
-                      <button class="btn btn-primary btn-block py-3" type="submit"  class="btn-home">Connexion</button>
-                  </div>
-                  <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-                    Signup failed!<br />{{ errorMessage }}
-                  </div>
-              </form>
-              <div class="alert alert-success" *ngIf="isSuccessful">
-                Your registration is successful!
-              </div>
-          </div>
-      </div>
-  </div> -->
-  
-      <div class="card card-container">
-        <img
-          id="profile-img"
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          class="profile-img-card"
-        />
-        <form
-          *ngIf="!isSuccessful"
-          name="form"
-          (ngSubmit)="f.form.valid && onSubmit()"
-          #f="ngForm"
-          novalidate
+<div class="container">
+  <div class="forms-container">
+    <div class="signin-signup">
+      <form 
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+        class="sign-in-form"
         >
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input
-              type="text"
-              class="form-control"
-              name="username"
-              [(ngModel)]="form.username"
-              required
-              minlength="3"
-              maxlength="20"
-              #username="ngModel"
-            />
-            <div class="alert-danger" *ngIf="username.errors && f.submitted">
-              <div *ngIf="username.errors['required']">Username is required</div>
-              <div *ngIf="username.errors['minlength']">
-                Username must be at least 3 characters
-              </div>
-              <div *ngIf="username.errors['maxlength']">
-                Username must be at most 20 characters
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              name="email"
-              [(ngModel)]="form.email"
-              required
-              email
-              #email="ngModel"
-            />
-            <div class="alert-danger" *ngIf="email.errors && f.submitted">
-              <div *ngIf="email.errors['required']">Email is required</div>
-              <div *ngIf="email.errors['email']">
-                Email must be a valid email address
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              class="form-control"
-              name="password"
-              [(ngModel)]="form.password"
-              required
-              minlength="6"
-              #password="ngModel"
-            />
-            <div class="alert-danger" *ngIf="password.errors && f.submitted">
-              <div *ngIf="password.errors['required']">Password is required</div>
-              <div *ngIf="password.errors['minlength']">
-                Password must be at least 6 characters
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <button class="btn btn-primary btn-block">Sign Up</button>
-          </div>
-    
-          <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-            Signup failed!<br />{{ errorMessage }}
-          </div>
-        </form>
-    
-        <div class="alert alert-success" *ngIf="isSuccessful">
-          Your registration is successful!
-        </div>
-      </div>
-</div>
+        <h2 class="title">Nouveau compte</h2>
 
-
-
-    <div class="container">
-      <div class="forms-container">
-        <div class="signin-signup">
-          <form action="#" class="sign-up-form">
-            <h2 class="title">Sign up</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
-            </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
-            </div>
-            <input type="submit" class="btn" value="Sign up" />
-            <p class="social-text">Or Sign up with social platforms</p>
-            <div class="social-media">
-              <a href="#" class="social-icon">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-google"></i>
-              </a>
-              <a href="#" class="social-icon">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-          </form>
-        </div>
-      </div>
-    
-      <div class="panels-container">
-        <div class="panel left-panel">
-          <div class="content">
-            <h3>New here ?</h3>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-              ex ratione. Aliquid!
-            </p>
-            <button class="btn transparent" id="sign-up-btn">
-              Sign up
-            </button>
+        <!-- <div class="form-group">
+          <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+            Login failed: {{ errorMessage }}
           </div>
-          <img src="../../../assets/img/log.svg" class="image" alt="" />
+        </div> -->
+
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input 
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            #username="ngModel"
+            type="text" 
+            placeholder="Username" 
+            minlength="3"
+            maxlength="20"
+          />
         </div>
-        <div class="panel right-panel">
-          <div class="content">
-            <h3>One of us ?</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-              laboriosam ad deleniti.
-            </p>
-            <button class="btn transparent" id="sign-in-btn">
-              Sign in
-            </button>
+        <div class="alert-danger" *ngIf="username.errors && f.submitted">
+          <div *ngIf="username.errors['required']">Username is required</div>
+          <div *ngIf="username.errors['minlength']">
+            Username must be at least 3 characters
           </div>
-          <img src="../../../assets/img/register.svg" class="image" alt="" />
+          <div *ngIf="username.errors['maxlength']">
+            Username must be at most 20 characters
+          </div>
         </div>
-      </div>
+
+        <div class="input-field">
+          <i class="fas fa-envelope"></i>
+          <input 
+            name="email"
+            [(ngModel)]="form.email"
+            required
+            #email="ngModel"
+            placeholder="Email" 
+            type="email" 
+          />
+        </div>
+        <div class="alert-danger" *ngIf="email.errors && f.submitted">
+          <div *ngIf="email.errors['required']">Email is required</div>
+          <div *ngIf="email.errors['email']">
+            Email must be a valid email address
+          </div>
+        </div>
+
+        <div class="input-field">
+          <i class="fas fa-lock"></i>
+          <input 
+            type="password"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="8"
+            #password="ngModel"
+            placeholder="Password" 
+          />
+        </div>
+        <div class="alert-danger" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+
+        <input type="submit" value="Créer un compte" class="btn solid" />
+
+        <!--CONNEXION MEDIA SOCIAUX-->
+        <p class="social-text">Connectez-vous avec un de vos compte</p>
+        <div class="social-media">
+          <a href="#" class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+        <!--CONNEXION MEDIA SOCIAUX-->
+
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Signup failed!<br />{{ errorMessage }}
+        </div>
+
+      </form>
+
     </div>
-    
+  </div>
 
 
+  <div class="panels-container">
+    <div class="panel left-panel">
+      <div class="content">
+        <h2 style="color: white;">Vous avez déjà un compte ?</h2>
+        <p style="font-size: 18px;">
+          Veuillez cliquer sur le boutton ci-dessous pour vous connecter
+        </p>
+        <button class="btn transparent" id="sign-up-btn" routerLink="/login">
+          Se connecter
+        </button>
+      </div>
+      <img src="../../../assets/img/register.svg" class="image" alt="" />
+    </div>
+  </div>
 
+</div>
 
 
     

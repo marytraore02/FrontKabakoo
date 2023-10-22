@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { TokenStorageService } from 'src/app/_services/auth/token-storage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +17,11 @@ export class HeaderComponent implements OnInit {
   showUserBoard = false;
   username?: string;
 
-  constructor(private tokenStorageService: TokenStorageService) {}
+  constructor(
+    private tokenStorageService: TokenStorageService, 
+    private toastr: ToastrService,
+    private router: Router
+    ) {}
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
@@ -33,6 +40,32 @@ export class HeaderComponent implements OnInit {
   logout(): void {
     this.tokenStorageService.signOut();
     window.location.reload();
+  }
+  Redirect(){
+    this.router.navigateByUrl('/accueil');
+    window.location.reload();
+  }
+
+  Deconnexion(){
+    Swal.fire({
+      title: 'Avertissement!',
+      text: "Êtes-vous sûr de vouloir vous déconnecter ?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Annuler',
+      confirmButtonText: 'Oui'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.tokenStorageService.signOut();
+        this.Redirect();
+        this.showSuccess();
+      }
+    })
+  }
+  showSuccess() {
+    this.toastr.success(this.username + ' Déconnecter ');
   }
 
 }

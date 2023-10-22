@@ -47,7 +47,7 @@ export class SignupComponent {
   }
 
   public showSuccess(): void {
-    this._toast.success('User Data Successfully Added');
+    this._toast.success('Compte créer avec success');
   }
 
     // Redirection

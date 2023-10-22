@@ -29,13 +29,13 @@ input {
 
 .signin-signup {
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  left: 75%;
+  top: 20%;
+  /* transform: translate(-50%, -50%); */
+  left: 50%;
   width: 50%;
-  transition: 1s 0.7s ease-in-out;
+  /* transition: 1s 0.7s ease-in-out; */
   display: grid;
-  grid-template-columns: 1fr;
+  /* grid-template-columns: 1fr; */
   z-index: 5;
 }
 
@@ -53,11 +53,11 @@ form {
 
 form.sign-up-form {
   opacity: 0;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 form.sign-in-form {
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 .title {
@@ -133,7 +133,7 @@ form.sign-in-form {
 }
 
 .btn {
-  width: 150px;
+  width: auto;
   background-color: #5995fd;
   border: none;
   outline: none;
@@ -221,10 +221,10 @@ form.sign-in-form {
   margin: 0;
   background: none;
   border: 2px solid #fff;
-  width: 130px;
+  width: auto;
   height: 41px;
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .right-panel .image,
@@ -250,12 +250,12 @@ form.sign-in-form {
 
 .container.sign-up-mode form.sign-up-form {
   opacity: 1;
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 .container.sign-up-mode form.sign-in-form {
   opacity: 0;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .container.sign-up-mode .right-panel .image,
@@ -331,9 +331,9 @@ form.sign-in-form {
   }
 
   .btn.transparent {
-    width: 110px;
+    width: auto;
     height: 35px;
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
 
   .container:before {
