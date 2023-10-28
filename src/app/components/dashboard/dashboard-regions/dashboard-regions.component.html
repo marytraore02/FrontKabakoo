@@ -55,7 +55,7 @@
       ***********************************-->
       <div class="deznav">
         <div class="deznav-scroll">
-            <a class="add-project-sidebar btn btn-primary" href="javascript:void(0)"  data-bs-toggle="modal" data-bs-target="#addProjectSidebar" >+ New Project</a>
+            <a class="add-project-sidebar btn btn-primary" routerLink="/accueil" >Accueil</a>
             <ul class="metismenu" id="menu">
                 <li>
                     <a routerLink="/dashboard/home">
@@ -231,6 +231,15 @@
                                               </tr>
                                             </tbody>
                                           </table>
+
+                                          <div class="container-fluid py-5"  *ngIf="listregions.length==0">
+                                            <div class="container py-5">
+                                                <div class="text-center mb-3 pb-3">
+                                                    <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Aucune region dans la base de donnee</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                         </div>

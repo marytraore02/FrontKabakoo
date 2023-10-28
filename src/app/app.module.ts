@@ -24,6 +24,7 @@ import { DashboardPaysComponent } from './components/dashboard/dashboard-pays/da
 import { DashboardRegionsComponent } from './components/dashboard/dashboard-regions/dashboard-regions.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderDashboardComponent } from './components/dashboard/header-dashboard/header-dashboard.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeDashboardComponent,
     HomeComponent,
     DashboardPaysComponent,
-    DashboardRegionsComponent
+    DashboardRegionsComponent,
+    HeaderDashboardComponent
   ],
   imports: [
     BrowserModule,

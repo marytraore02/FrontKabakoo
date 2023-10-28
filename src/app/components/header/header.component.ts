@@ -52,8 +52,8 @@ export class HeaderComponent implements OnInit {
       text: "Êtes-vous sûr de vouloir vous déconnecter ?",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
+      confirmButtonColor: '#3085d6',   
       cancelButtonText: 'Annuler',
       confirmButtonText: 'Oui'
     }).then((result) => {
